@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventi - Parrocchia del Sacro Cuore di Gesù - Vittoria</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <section class="blocco-home">
+        <h3 style="text-align: center; margin-top: 50px;">NOTIZIE & APPUNTAMENTI</h3>
+        <table width="100%">
+          <tr>
+            <td align="left" width="33%">
+              <div class="blocco-home">
+                <div class="evento-box">
+                  <a href="notizia1.html">
+                    <img class="evento-img" src="img23.jpg" alt="Evento 1" />
+                  </a>
+                  <div class="evento-content">
+                    <h2>Festa del Sacro Cuore di Gesù </h2>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td align="center" width="33%">
+              <div class="blocco-home">
+                <div class="evento-box">
+                  <a href="notizia2.html">
+                    <img class="evento-img" src="evento2.jpg" alt="Evento 2" />
+                  </a>
+                  <div class="evento-content">
+                    <h2>Settimana santa</h2>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td align="right" width="33%">
+              <div class="blocco-home">
+                <div class="evento-box">
+                  <a href="notizia3.html">
+                    <img class="evento-img" src="evento3.jpg" alt="Evento 3" />
+                  </a>
+                  <div class="evento-content">
+                    <h2>Missione parrocchiale</h2>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <h2 style="text-align: center;">PROGRAMMA SETTIMANALE</h2>
+        <div class="contenitore">
+          <table class="tabella-programma" border="0">
+            <tr>
+              <th class="orario">LUNEDÌ</th>
+              <th class="orario">MARTEDÌ</th>
+              <th class="orario">MERCOLEDÌ</th>
+              <th class="orario">GIOVEDÌ</th>
+              <th class="orario">VENERDÌ</th>
+              <th class="orario">SABATO</th>
+              <th class="orario">DOMENICA</th>
+            </tr>
+            <tr>
+              <td>
+                <b>19:00</b><br />
+                Messa<br /><b>20:30</b><br />
+                Gruppo giovani
+              </td>
+              <td>
+                <b>17:00</b><br />
+                Azione Cattolica<br /><b>19:00</b><br />
+                Messa
+              </td>
+              <td>
+                <b>19:00</b><br />
+                Messa<br /><b>19:45 </b><br />
+                Cenacolo<br /><b>20:30</b><br />
+                Corso prematrimoniale
+              </td>
+              <td>
+                <b>19:00</b><br />
+                Messa<br /><b>20:30</b><br />
+                Adorazione
+              </td>
+              <td>
+                <b>09:00</b><br />
+                Messa<br />
+                Adorazione<br /><b>19:00</b><br />
+                Messa
+              </td>
+              <td><b>19:00</b><br />Messa</td>
+              <td>
+                <b>09:00</b><br />
+                Messa<br /><b>11:00</b><br />
+                Messa<br /><b>19:00</b><br />
+                Messa
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <!-- SCRIPT PER INCLUDERE HEADER E FOOTER -->
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("header").innerHTML = data));
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("footer").innerHTML = data));
+    </script>
+
+    <!-- SCRIPT PER MODIFICA CONTENUTI SE LOGGATO -->
+    <script>
+      const isLoggedIn = sessionStorage.getItem("loggedIn") === "true";
+
+      if (isLoggedIn) {
+        // Rendi modificabili i titoli eventi
+        document.querySelectorAll(".evento-content h2").forEach((el) => {
+          el.contentEditable = "true";
+          el.style.border = "1px dashed #555";
+          el.style.padding = "4px";
+          el.title = "Modifica il titolo...";
+        });
+
+        // Rendi modificabile anche il programma settimanale
+        document.querySelectorAll(".tabella-programma td").forEach((el) => {
+          el.contentEditable = "true";
+          el.style.border = "1px dashed #555";
+          el.style.padding = "4px";
+          el.title = "Modifica questo contenuto...";
+        });
+
+        // Crea pulsante salva modifiche
+        const saveBtn = document.createElement("button");
+        saveBtn.textContent = "Salva modifiche";
+        saveBtn.style.display = "block";
+        saveBtn.style.margin = "20px auto";
+        saveBtn.style.padding = "10px 20px";
+        saveBtn.style.fontSize = "1.1rem";
+        document.querySelector("main").prepend(saveBtn);
+
+        // Carica dati salvati da localStorage
+        function caricaModifiche() {
+          const dati = JSON.parse(localStorage.getItem("notizieModifiche") || "{}");
+
+          for (const [selector, contenuto] of Object.entries(dati)) {
+            const el = document.querySelector(selector);
+            if (el) el.innerHTML = contenuto;
+          }
+        }
+        caricaModifiche();
+
+        // Salva modifiche in localStorage
+        saveBtn.addEventListener("click", () => {
+          let datiSalvati = {};
+
+          // Salva titoli eventi
+          document.querySelectorAll(".evento-content h2").forEach((el, i) => {
+            const selector = `.evento-content h2:nth-of-type(${i + 1})`;
+            datiSalvati[selector] = el.innerHTML;
+          });
+
+          // Salva celle programma settimanale
+          document.querySelectorAll(".tabella-programma td").forEach((el, i) => {
+            const selector = `.tabella-programma td:nth-of-type(${i + 1})`;
+            datiSalvati[selector] = el.innerHTML;
+          });
+
+          localStorage.setItem("notizieModifiche", JSON.stringify(datiSalvati));
+          alert("Modifiche salvate!");
+        });
+      }
+    </script>
+  </body>
+</html>
