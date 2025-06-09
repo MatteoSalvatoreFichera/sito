@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chi Siamo - Parrocchia del Sacro Cuore di Gesù - Vittoria</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <!-- Parroci -->
+      <section class="blocco-home">
+        <h3>SACERDOTI - PARROCI</h3>
+        <div class="griglia-sacerdoti">
+          <div class="card-sacerdote evidenza">
+            <img src="donettore.jpg" alt="Don Ettore Todaro" />
+            <p><b>Don Ettore Todaro (attuale)</b></p>
+            <p class="biografia">
+              <b>Incarico:</b><br>
+              Parroco della parrocchia Sacro Cuore di Gesù in Vittoria, docente del Percorso di formazione alla vita cristiana.<br>
+              <b>Luogo di nascita:</b> Comiso<br>
+              <b>Ordinazione:</b> 01/10/2009 – Cattedrale San Giovanni Battista, Ragusa
+            </p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="parroco2.jpg" alt="Don Mario Cascone" />
+            <p><b>Don Mario Cascone (2003 - 2021)</b></p>
+            <p class="biografia">
+              <b>Incarico:</b><br>
+              Parroco ad Acate, docente e membro di vari organismi diocesani.<br>
+              <b>Luogo di nascita:</b> Acate<br>
+              <b>Ordinazione:</b> 18/07/1981 – Parrocchia San Nicolò di Bari, Acate
+            </p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="parroco3.jpg" alt="Don Salvatore Converso" />
+            <p><b>Don Salvatore Converso</b></p>
+            <p class="biografia">
+              <b>Incarico:</b><br>
+              Parroco a Vittoria e responsabile diocesano per i diaconi, docente e membro di varie commissioni.<br>
+              <b>Luogo di nascita:</b> Vittoria<br>
+              <b>Ordinazione:</b> 28/08/1977 – Parrocchia Sacro Cuore, Vittoria
+            </p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="parroco4.jpg" alt="Don Giuseppe Cabibbo" />
+            <p><b>Don Giuseppe Cabibbo</b></p>
+            <p class="biografia">
+              <b>Incarico:</b><br>
+              Canonico e penitenziere della Cattedrale di Ragusa.<br>
+              <b>Luogo di nascita:</b> Ragusa<br>
+              <b>Ordinazione:</b> 23/12/1967 – Parrocchia San Giorgio, Ragusa
+            </p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="parroco5.jpg" alt="Don Flaccavento" />
+            <p><b>Don Flaccavento</b></p>
+            <p class="biografia">Biografia o info...</p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="parroco6.jpg" alt="Mons. Gurrieri" />
+            <p><b>Mons. Gurrieri</b></p>
+            <p class="biografia">Biografia o info...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Viceparroci -->
+      <section class="blocco-home">
+        <h3>SACERDOTI - VICEPARROCI</h3>
+        <div class="griglia-sacerdoti">
+          <div class="card-sacerdote evidenza">
+            <img src="donvito.jpg" alt="Don Vito Intanno" />
+            <p><b>Don Vito Intanno</b></p>
+            <p class="biografia">
+              <b>Incarico:</b><br>
+              Vicario parrocchiale del Sacro Cuore di Gesù in Vittoria.<br>
+              <b>Luogo di nascita:</b> Acate<br>
+              <b>Ordinazione:</b> 08/09/1967 – Cattedrale di Ragusa
+            </p>
+          </div>
+
+          <div class="card-sacerdote">
+            <img src="viceparroco2.jpg" alt="Don Enrico Arena" />
+            <p><b>Don Enrico Arena</b></p>
+            <p class="biografia">Info o biografia...</p>
+          </div>
+
+          <!-- Viceparroci 3 - 20 -->
+          <!-- Puoi ripetere il blocco seguente modificando solo immagine, nome e info -->
+          <div class="card-sacerdote">
+            <img src="vice3.jpg" alt="Don Vice 3" />
+            <p><b>Don Vice 3</b></p>
+            <p class="biografia">Info o biografia...</p>
+          </div>
+
+          <!-- Continua da 4 a 20 -->
+          <!-- Esempio -->
+          <div class="card-sacerdote">
+            <img src="vice4.jpg" alt="Don Vice 4" />
+            <p><b>Don Vice 4</b></p>
+            <p class="biografia">Info o biografia...</p>
+          </div>
+
+          <!-- ... fino a Don Vice 20 -->
+          <div class="card-sacerdote">
+            <img src="vice20.jpg" alt="Don Vice 20" />
+            <p><b>Don Vice 20</b></p>
+            <p class="biografia">Info o biografia...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("header.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+
+      fetch("footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+  </body>
+</html>
