@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Siamo - Parrocchia del Sacro Cuore di Gesù - Vittoria</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+   <div id="header"></div>
+
+  <main>
+    <!-- Contenitore rettangolare bianco -->
+    <div  >
+      <section class="blocco-home">
+        <h3>STORIA DELLA PARROCCHIA </h3>
+            <section class="blocco-home">
+                <h2>Sezione Storica</h2>
+                <p>
+                La Parrocchia del Sacro Cuore di Gesù rappresenta uno dei pilastri religiosi e culturali della città di Vittoria, in provincia di Ragusa, in Sicilia. Situata in Piazza Daniele Manin, nel cuore del quartiere ottocentesco, è frutto di un’epoca di profonda crescita urbana e spirituale che segnò la città tra la fine del XIX e l’inizio del XX secolo.
+                La costruzione della chiesa parrocchiale ebbe inizio verso la fine dell'Ottocento, in un contesto storico in cui Vittoria viveva un’espansione sia demografica che economica. L'istituzione della parrocchia si inserì nel progetto di creare nuovi centri di aggregazione spirituale per la popolazione residente nei nuovi quartieri cittadini.
+                L’intitolazione al Sacro Cuore di Gesù, fortemente legata alla spiritualità riparatrice e all'adorazione eucaristica, riflette lo spirito devozionale di quel periodo, segnato da un desiderio di rinnovamento del culto e di avvicinamento del popolo alla misericordia di Dio attraverso il Cuore di Cristo.
+                </p>
+            </section>
+
+<h2>Patrimonio artistico</h2>
+
+All'interno della chiesa si trovano due opere di particolare pregio:
+
+* Una tela raffigurante la **Madonna della Medaglia**, dipinta da **Giuseppe Mazzone** nel 1870.
+* Una seconda tela, più antica (datata 1827), rappresenta i **Santi Pietro e Paolo**, di autore ignoto ma di grande valore iconografico.
+
+### Sezione Vita Parrocchiale
+
+La comunità del Sacro Cuore è da sempre attiva nel promuovere la formazione cristiana dei fedeli attraverso:
+
+* **Celebrazioni eucaristiche quotidiane**
+* **Adorazione eucaristica settimanale**
+* **Percorsi formativi per giovani e famiglie**
+* **Gruppi ecclesiali** (Azione Cattolica, Cenacolo, catechismo, gruppo giovani)
+
+Uno dei momenti più significativi dell’anno liturgico è rappresentato dai **solenni festeggiamenti in onore del Sacro Cuore di Gesù**, che si tengono tra la fine di maggio e l'inizio di giugno. Questi giorni sono scanditi da:
+
+* Celebrazioni liturgiche e messe solenni
+* Novene e processioni per le vie della parrocchia
+* Incontri spirituali e momenti di fraternità comunitaria
+* Iniziative culturali e caritative
+
+### Oggi
+
+La Parrocchia continua a essere un punto di riferimento non solo religioso, ma anche sociale e educativo per numerose famiglie, ragazzi, anziani e volontari. Il suo oratorio e gli spazi parrocchiali sono luoghi vivi, dove si intrecciano spiritualità, amicizia, solidarietà e formazione umana.
+
+Attraverso un cammino fedele al Vangelo e attento ai segni dei tempi, la comunità parrocchiale si pone l'obiettivo di testimoniare la **vicinanza del Cuore di Cristo** a tutti, specialmente ai giovani e ai più fragili, in una Chiesa che vuole essere casa e famiglia per ogni persona.
+
+        </p>
+      </section>
+
+            
+        </table>
+      </section>
+    </div> <!-- Fine contenitore -->
+  </main>
+
+  <!-- FOOTER DINAMICO -->
+  <div id="footer"></div>
+
+  <!-- SCRIPT PER INCLUDERE HEADER E FOOTER -->
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+</body>
+</html>
+

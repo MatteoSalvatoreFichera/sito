@@ -1,0 +1,1128 @@
+/* ROOT & RESET */
+:root {
+  --rosso:  rgb(171, 0, 0);            /* rosso moderno, più caldo e meno acceso */
+  --rosso-scuro:  rgb(171, 0, 0);      /* rosso scuro coordinato */
+  --bianco: #f1faee;           /* bianco caldo, molto leggermente crema */
+  --grigio-scuro: #1d1d1d;     /* quasi nero, più morbido */
+  --grigio-chiaro: #a8dadc;    /* azzurro molto chiaro e soft */
+  --testo-base: #1d1d1d;       /* testo scuro morbido */
+  --accent-color: #ffffff;     /* arancione/salmone per hover e dettagli */
+  --primary-color: var(--rosso);
+  --secondary-color: var(--bianco);
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --radius: 12px;
+  --transition: 0.25s ease-in-out;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bianco);
+  color: var(--testo-base);
+  font-size: 17px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* HEADER */
+header {
+  /*background: linear-gradient(90deg, var(--rosso) 0%, var(--rosso-scuro) 100%);*/
+  background: 
+    linear-gradient(  rgba(171, 0, 0, 0.618)),
+    url('SACROCUORE.jpg') no-repeat center;
+  background-size: cover;
+  color:  rgb(255, 255, 255); /* testo bianco per contrasto */
+ 
+  padding: 1.8rem 2rem;
+  position: 10px;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-main);
+}
+
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items:end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-container img {
+  max-height: 60px;
+  width: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+  border-radius: 5px;
+}
+
+.parrocchia-name h1 {
+  font-size: 1.0rem;
+  line-height: 1.0; 
+  text-shadow: 1px 1px 3px rgba(255, 115, 0, 0.629);
+  font-family:  'Cinzel', serif;
+  text-align: center;
+  
+
+  
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--bianco);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--accent-color);
+  color: var(--grigio-scuro);
+  outline: none;
+  box-shadow: 0 0 6px var(--accent-color);
+}
+
+/* Evidenzia pagina attiva */
+nav a[aria-current="page"],
+nav a.active {
+  background-color: var(--accent-color);
+  color: var(--grigio-scuro);
+  font-weight: 700;
+  box-shadow: 0 0 8px var(--accent-color);
+  cursor: default;
+  pointer-events: none;
+  border-radius: 6px;
+  transform: scale(1.05);
+  transition: none;
+}
+
+/* BUTTON PRIMARY */
+.btn-primary {
+  background-color: var(--rosso);
+  padding: 0.5rem 1.3rem;
+  border-radius: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+  transition: background-color var(--transition), box-shadow var(--transition);
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--rosso-scuro);
+  box-shadow: 0 6px 20px rgba(166, 40, 42, 0.6);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--rosso-scuro);
+  color: var(--bianco);
+  padding: 3rem 2rem 1.5rem;
+  font-family: var(--font-main);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 30px 30px;
+  user-select: none;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  min-width: 220px;
+}
+
+.footer-col h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--bianco);
+  padding-bottom: 0.4rem;
+  user-select: text;
+}
+
+.footer-col p,
+.footer-col ul {
+  font-size: 1rem;
+  line-height: 1.5;
+  user-select: text;
+  margin-bottom: 0.6rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: var(--bianco);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+  transition: filter 0.3s ease;
+  vertical-align: middle;
+}
+
+.social-icon:hover {
+  filter: drop-shadow(0 2px 5px var(--accent-color));
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  user-select: none;
+}
+
+.home-rich-modern {
+  max-width: 1200px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.hero-welcome {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #f4f7f8, #e2e8f0);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.sacerdote-box {
+  flex: 0 0 280px;
+  text-align: center;
+}
+
+.sacerdote-foto {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 5px solid #d62828;
+  background: transparent;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 6px 10px rgba(214, 40, 40, 0.3));
+}
+
+.sacerdote-foto:hover {
+  transform: scale(1.05);
+}
+
+.sacerdote-box h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.9rem;
+  color: #d62828;
+  font-weight: 700;
+}
+
+.quote {
+  font-style: italic;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.welcome-message {
+  flex: 1;
+  max-width: 700px;
+}
+
+.welcome-message h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #d62828;
+  margin-bottom: 0.6rem;
+}
+
+.welcome-message p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.info-panorama {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  gap: 2.5rem;
+}
+
+.info-panorama article {
+  background: #fff;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.07);
+  color: #333;
+  user-select: text;
+}
+
+.info-panorama article h2 {
+  font-size: 1.8rem;
+  color: #d62828;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  user-select: text;
+}
+
+.info-panorama article p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.info-panorama ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-panorama ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #555;
+  user-select: text;
+}
+
+.info-panorama ul li::before {
+  content: "✝";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d62828;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.testimonianze blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #d62828;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  user-select: text;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap: 10px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+address {
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #444;
+  user-select: text;
+}
+
+address a {
+  color: #d62828;
+  text-decoration: none;
+}
+
+address a:hover {
+  text-decoration: underline;
+}
+
+.faq details {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+  user-select: text;
+}
+
+.faq summary {
+  font-weight: 700;
+  color: #d62828;
+  outline: none;
+}
+
+.faq p {
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 800px) {
+  .hero-welcome {
+    flex-direction: column;
+  }
+  .sacerdote-box, .welcome-message {
+    max-width: 100%;
+  }
+  .welcome-message h1 {
+    font-size: 2.2rem;
+  }
+}
+.hero-welcome {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  
+  /* Sfondo immagine */
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255)),
+    url('img23.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff; /* testo bianco per contrasto */
+}
+
+/* Reset base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #b30000; /* rosso */
+}
+
+/* Contenitore principale per i sacerdoti */
+.blocco-home {
+  margin: 30px auto;
+  max-width: 700px; /* più largo */
+  padding: 0 20px;
+}
+
+/* Carousel container */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgb(179 0 0 / 0.3);
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* Wrapper con slides */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Ogni slide: casella sacerdoti */
+.carousel-slide {
+  min-width: 700px; /* larghezza della casella */
+  padding: 25px 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Immagini sacerdoti */
+.foto {
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+}
+
+/* Nome sacerdote */
+.carousel-slide p:first-of-type {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #b30000; /* rosso */
+}
+
+/* Biografia */
+.biografia {
+  font-size: 0.9rem;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Frecce navigazione */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #b30000; /* rosso */
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgb(179 0 0 / 0.6);
+  user-select: none;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background-color: #800000;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blocco-home {
+    max-width: 90vw;
+  }
+  .carousel-slide {
+    min-width: 90vw;
+    padding: 15px 20px;
+  }
+  .foto {
+    height: 160px;
+  }
+  .biografia {
+    max-width: 100%;
+  }
+  .carousel-button {
+    font-size: 1.6rem;
+    padding: 8px 12px;
+  }
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(179, 0, 0, 0.2);
+  border: none;
+  color: #b30000;
+  font-size: 3rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(179, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+  line-height: 1;
+}
+
+.carousel-button:hover {
+  background-color: rgba(179, 0, 0, 0.5);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(179, 0, 0, 0.8);
+}
+
+/* Posizione frecce */
+#prevBtn {
+  left: 15px;
+}
+
+#nextBtn {
+  right: 15px;
+}
+
+/* Testo delle frecce */
+#prevBtn::after {
+  content: "◀"; /* freccia a sinistra */
+}
+
+#nextBtn::after {
+  content: "▶"; /* freccia a destra */
+}
+
+/* Colori coerenti con la home (rosso principale) */
+h2, h3 {
+  color: #a30000;
+}
+
+/* Eventi: stile coerente con le card della home */
+.evento-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.evento-box:hover {
+  transform: scale(1.02);
+}
+
+/* Immagini degli eventi: coerenti con la home */
+.evento-img {
+  height: 250px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* Frecce moderne */
+.arrow {
+  font-size: 2.5rem;
+  color: #a30000;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+  color: #c80000;
+}
+
+#header-fixed {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+main {
+  margin-top: 120px; 
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eventi h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #800000;
+}
+
+.eventi-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.evento {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.evento:hover {
+  transform: translateY(-5px);
+}
+
+.evento img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.evento h2 {
+  padding: 15px;
+  font-size: 1.2rem;
+  color: #800000;
+  text-align: center;
+}
+
+.programma-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 60px 0 20px;
+  color: #800000;
+}
+
+.programma table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.programma th,
+.programma td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.programma th {
+  background-color: #800000;
+  color: white;
+  font-weight: 500;
+}
+
+.programma td {
+  font-size: 0.95rem;
+}
+:root {
+  --rosso: #b30000;
+  --rosso-scuro: #8b0000;
+  --grigio-chiaro: #f9f9f9;
+  --grigio: #ddd;
+  --testo: #222;
+  --font-base: 'Segoe UI', sans-serif;
+  --padding-generale: 24px;
+  --raggio: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--testo);
+  background-color: #fff;
+  font-size: 1.1rem;
+}
+
+main {
+  padding: var(--padding-generale);
+}
+
+h2, h3 {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2.2rem;
+  margin: 40px 0 30px;
+}
+
+
+
+.blocco-home {
+  padding: 16px;
+}
+
+.evento-box {
+  background-color: var(--grigio-chiaro);
+  border-radius: var(--raggio);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.evento-box:hover {
+  transform: scale(1.03);
+}
+
+.evento-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.evento-content {
+  padding: 16px;
+  text-align: center;
+}
+
+.evento-content h2 {
+  font-size: 1.4rem;
+  color: var(--rosso-scuro);
+}
+
+/* PROGRAMMA SETTIMANALE */
+.contenitore {
+  margin-top: 50px;
+  overflow-x: auto;
+}
+
+.tabella-programma {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--grigio-chiaro);
+  border-radius: var(--raggio);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+}
+
+.tabella-programma th,
+.tabella-programma td {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--grigio);
+  min-width: 120px;
+}
+
+.tabella-programma th.orario {
+  background-color: var(--rosso);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.tabella-programma td {
+  background-color: white;
+  color: var(--testo);
+  line-height: 1.5;
+}
+
+/* PULSANTE */
+button {
+  background-color: var(--rosso);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: var(--rosso-scuro);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .evento-img {
+    height: 180px;
+  }
+
+  .evento-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .tabella-programma th,
+  .tabella-programma td {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .evento-box {
+    margin-bottom: 30px;
+  }
+}
+
+/* Selezione testo */
+::selection {
+  background-color: var(--rosso);
+  color: white;
+}
+/* Reset di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header & Footer */
+#header, #footer {
+  background-color: #800000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Titolo sezione */
+.blocco-home {
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.blocco-home h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: #800000;
+  margin-bottom: 30px;
+}
+
+/* Griglia sacerdoti */
+.griglia-sacerdoti {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 10px;
+  max-width: 1300px;
+  margin: 4 auto;
+}
+
+/* Singola card */
+.card-sacerdote {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card-sacerdote:hover {
+  transform: translateY(-5px);
+}
+
+.card-sacerdote img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+}
+
+.card-sacerdote img:hover {
+  border-color: #800000;
+}
+
+.card-sacerdote.evidenza img {
+  border-color: #800000;
+  box-shadow: 0 0 10px rgba(128, 0, 0, 0.3);
+}
+
+.card-sacerdote p {
+  margin: 8px 0;
+}
+
+.card-sacerdote .biografia {
+  text-align: left;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Responsive ottimale */
+@media (max-width: 600px) {
+  .card-sacerdote {
+    padding: 15px;
+  }
+}
+
+
+
+/* ====== PULSANTE SALVA ====== */
+button {
+  background-color: var(--rosso);
+  border: none;
+  border-radius: 0px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0px 0px;
+  cursor: pointer;
+  display: block;
+  margin: 0px auto 0;
+  box-shadow: 0 6px 140px rgba(179, 0, 0, 0.7);
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: var(--rosso-scuro);
+  box-shadow: 0 8px 0px rgba(139, 0, 0, 0.85);
+}
+
+
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+  table tr {
+    flex-direction: column;
+  }
+
+  table td {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .evento-img {
+    height: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0px;
+  }
+
+  h3 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .evento-img {
+    height: 160px;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 1px 0px;
+  }
+}
+
+/* Responsive per mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+
+  .social-icon {
+    margin-right: 8px;
+  }
+}
+
+/* Responsive Header */
+@media (max-width: 100px) {
+  header .header-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .parrocchia-name h1 {
+    font-size: 40.5rem;
+    text-align: left;
+  }
+}
+
+/* Responsive main hero */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem 4rem;
+  }
+}

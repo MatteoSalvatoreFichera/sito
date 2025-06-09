@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione - Parrocchia del Sacro Cuore di Gesù - Vittoria</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Collega il tuo file CSS per lo stile del sito -->
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <section>
+        <h2>Registrazione</h2>
+
+        <form id="registrazioneForm">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required><br><br>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br><br>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br><br>
+
+          <button type="button" onclick="registrati()">Registrati</button>
+        </form>
+
+        <div id="message"></div> <!-- Div per visualizzare messaggi -->
+
+        <p>Hai già un account? <a href="accedi.html">Accedi</a></p>
+      </section>
+    </main>
+
+    <!-- FOOTER DINAMICO -->
+    <div id="footer"></div>
+
+    <!-- SCRIPT PER INCLUDERE HEADER E FOOTER -->
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+    <script>
+    function registrati() {
+      // Ottieni i dati dal modulo
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Controlla se i campi sono vuoti
+      if (nome === '' || email === '' || password === '') {
+        document.getElementById('message').innerHTML = "<p style='color: red;'>Tutti i campi sono obbligatori.</p>";
+        return;
+      }
+
+      // Simula un controllo dell'email (nessun duplicato per il momento)
+      const user = { nome, email, password };
+      
+      // Controlla se l'email è già registrata (nel localStorage)
+      let utenti = JSON.parse(localStorage.getItem('utenti')) || [];
+      
+      if (utenti.some(u => u.email === email)) {
+        document.getElementById('message').innerHTML = "<p style='color: red;'>Email già utilizzata.</p>";
+        return;
+      }
+      
+      // Aggiungi l'utente al "database" (localStorage)
+      utenti.push(user);
+      localStorage.setItem('utenti', JSON.stringify(utenti));
+
+      // Mostra il messaggio di successo
+      document.getElementById('message').innerHTML = "<p style='color: green;'>Registrazione avvenuta con successo!</p>";
+      document.getElementById('registrazioneForm').reset();  // Pulisce il modulo
+    }
+  </script>
+  </body>
+</html>
