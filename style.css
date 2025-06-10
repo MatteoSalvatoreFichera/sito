@@ -456,6 +456,25 @@ address a:hover {
   color: #fff; /* testo bianco per contrasto */
 }
 
+.hero-welcome2 {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  
+  /* Sfondo immagine */
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+    url('copertinaPrograma.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff; /* testo bianco per contrasto */
+}
+
+.
 /* Reset base */
 * {
   box-sizing: border-box;
