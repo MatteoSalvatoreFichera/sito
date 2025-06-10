@@ -1146,78 +1146,62 @@ button:hover {
   }
 }
 
+/* Di base */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Menu orizzontale su desktop */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* MOBILE VERSION */
 @media (max-width: 768px) {
-  .header-inner {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
   }
 
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* Nasconde il menu di default su mobile */
+#nav-links {
+  display: none;
+}
+
+/* Quando ha classe open, mostra il menu */
+#nav-links.open {
+  display: block;
+}
+
+/* Mostra il menu sempre su desktop (larghezza maggiore di 768px) */
+@media screen and (min-width: 768px) {
+  #nav-links {
+    display: block !important;
   }
 
-  .hero-welcome,
-  .hero-welcome2 {
-    padding: 1.5rem 1rem;
-    text-align: center;
-  }
-
-  .welcome-message h1 {
-    font-size: 1.8rem;
-  }
-
-  .welcome-message p {
-    font-size: 1rem;
-  }
-
-  .sacerdote-foto {
-    width: 180px;
-    height: 180px;
-  }
-
-  .info-panorama {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .photo-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 8px;
-  }
-
-  footer .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-col {
-    min-width: 100%;
-  }
-
-  .carousel-slide {
-    min-width: 100% !important;
-    padding: 20px 15px;
-  }
-
-  .carousel-container {
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-  }
-
-  .foto {
-    height: 180px;
-  }
-
-  .blocco-home {
-    padding: 0 10px;
-  }
-
-  h3 {
-    font-size: 1.2rem;
+  .menu-toggle {
+    display: none;
   }
 }
