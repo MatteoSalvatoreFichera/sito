@@ -5,80 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parrocchia del Sacro Cuore di Gesù - Vittoria</title>
     <link rel="stylesheet" href="style.css" />
-    <script>
-    const pageId = 'eventi'; // Cambia questo in base alla pagina
 
-    const editSelectors = [
-      '.blocco-home h3',
-      '.blocco-home p',
-      '.evento-content h2',
-      '.tabella-programma td',
-    ];
+    <body>
+      <header id="header-fixed" class="fff">
+        <div class="header-inner">
+          <div class="logo-container">
+            <a href="index.html">
+              <img src="logo.png" alt="Logo Parrocchia Sacro Cuore" />
+            </a>
+            <div class="parrocchia-name">
+              <h1>PARROCCHIA <br>SACRO CUORE DI GESU'<br> VITTORIA</h1>
+            </div>
+          </div>
 
-    function loadModifiche() {
-      const dati = JSON.parse(localStorage.getItem(`modifiche_${pageId}`) || '{}');
-      for (const [selector, contenuto] of Object.entries(dati)) {
-        const el = document.querySelector(selector);
-        if (el) el.innerHTML = contenuto;
-      }
-    }
+          <!-- Bottone menu toggle -->
+          <button class="menu-toggle" id="menu-toggle"
+            aria-label="Apri menu">☰</button>
 
-    function saveModifiche() {
-      const datiSalvati = {};
-      editSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach((el, i) => {
-          const key = `${selector}:nth-of-type(${i + 1})`;
-          datiSalvati[key] = el.innerHTML;
-        });
-      });
-      localStorage.setItem(`modifiche_${pageId}`, JSON.stringify(datiSalvati));
-      alert('Modifiche salvate!');
-    }
-
-    function attivaEditing() {
-      if (sessionStorage.getItem('loggedIn') !== 'true') return;
-
-      editSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => {
-          el.contentEditable = "true";
-          el.style.border = "1px dashed #007BFF";
-          el.style.padding = "4px";
-          el.title = "Modifica questo contenuto";
-        });
-      });
-
-      if (!document.getElementById('saveChangesBtn')) {
-        const btn = document.createElement('button');
-        btn.id = 'saveChangesBtn';
-        btn.textContent = 'Salva modifiche';
-        btn.style.display = 'block';
-        btn.style.margin = '20px auto';
-        btn.style.padding = '10px 20px';
-        btn.style.fontSize = '1.1rem';
-        document.querySelector('main').prepend(btn);
-        btn.addEventListener('click', saveModifiche);
-      }
-
-      loadModifiche();
-    }
-
-    window.addEventListener('DOMContentLoaded', attivaEditing);
-  </script>
-  </head>
-  <body>
-    <div id="header"></div>
-    <main class="home-rich-modern">
-
-      <section class="hero-welcome2">
-        <div class="welcome-message">
-          <br><br><br><br><br><br><br><br><br>
-          <br><br><br><br><br><br><br><br><br>
-           <br><br><br><br><br><br><br><br><br>
-            
-          <!-- Possibile spazio per video o immagine più grande -->
+          <!-- Menu di navigazione -->
+          <nav id="nav-links" class="hidden">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="storia.html">Storia</a></li>
+              <li><a href="eventi.html">Notizie</a></li>
+              <li><a href="chi_siamo.html">Sacerdoti</a></li>
+              <li><a href="realta.html">Realtà</a></li>
+            </ul>
+          </nav>
         </div>
+      </header>
+
+      <!-- JavaScript -->
+      <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    nav.classList.toggle("hidden");
+  });
+});
+  </script>
+      <main class="home-rich-modern">
+
+        <section class="hero-welcome2">
+          <div class="welcome-message">
+            <br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
+
+            <!-- Possibile spazio per video o immagine più grande -->
+          </div>
         </section>
-  
+
         <section class="eventi">
           <h3>APPUNTAMENTI</h3>
           <div class="eventi-container">
@@ -94,14 +74,15 @@
             </div>
             <div class="evento">
               <img src="MUSICAL.png" alt="Evento 1" />
-              <h2> 
-                I giovani e giovanissimi in occasione dei festeggiamenti 
+              <h2>
+                I giovani e giovanissimi in occasione dei festeggiamenti
               </h2>
               <p>SABATO 21 GIUGNO 2025 ORE 20:30</p>
             </div>
-             <div class="evento">
+            <div class="evento">
               <img src="corale.jpg" alt="Evento 5" />
-              <h2>La CORALE GIOVANNA BATTAGLIA torna con un nuovo emozionante spettacolo!</h2>
+              <h2>La CORALE GIOVANNA BATTAGLIA torna con un nuovo emozionante
+                spettacolo!</h2>
               <p>VENERDI' 27 GIUGNO 2025 ORE 21:00</p>
             </div>
             <div class="evento">
@@ -114,7 +95,7 @@
               <h2>SPETTACOLO EQUESTRE</h2>
               <p>DOMENICA 29 GIUGNO 2025 ORE 10.00</p>
             </div>
-             <div class="evento">
+            <div class="evento">
               <img src="IMG_USCITA.jpg" alt="Evento 4" />
               <h2>SOLENNE USCITA</h2>
               <p>DOMENICA 29 GIUGNO 2025 ORE 19.30</p>
@@ -124,7 +105,7 @@
               <h2>SPETTACOLO PIROMUSICALE</h2>
               <p>DOMENICA 29 GIUGNO 2025 ORE 23.00</p>
             </div>
-             <div class="evento">
+            <div class="evento">
               <img src="SPETTACOLO.jpg" alt="Evento 5" />
               <h2>SPETTACOLO PIROMUSICALE</h2>
               <p>DOMENICA 29 GIUGNO 2025 ORE 23.00</p>
@@ -186,9 +167,7 @@
         <div id="footer"></div>
 
         <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("header").innerHTML = data);
+   
 
     fetch("footer.html")
       .then(res => res.text())

@@ -7,7 +7,46 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <header id="header-fixed" class="fff">
+      <div class="header-inner">
+        <div class="logo-container">
+          <a href="index.html">
+            <img src="logo.png" alt="Logo Parrocchia Sacro Cuore" />
+          </a>
+          <div class="parrocchia-name">
+            <h1>PARROCCHIA <br>SACRO CUORE DI GESU'<br> VITTORIA</h1>
+          </div>
+        </div>
+
+        <!-- Bottone menu toggle -->
+        <button class="menu-toggle" id="menu-toggle"
+          aria-label="Apri menu">☰</button>
+
+        <!-- Menu di navigazione -->
+        <nav id="nav-links" class="hidden">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="storia.html">Storia</a></li>
+            <li><a href="eventi.html">Notizie</a></li>
+            <li><a href="chi_siamo.html">Sacerdoti</a></li>
+            <li><a href="realta.html">Realtà</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    nav.classList.toggle("hidden");
+  });
+});
+  </script>
 
     <main>
       <!-- Parroci -->
@@ -122,9 +161,6 @@
     <div id="footer"></div>
 
     <script>
-      fetch("header.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("header").innerHTML = data);
 
       fetch("footer.html")
         .then(res => res.text())

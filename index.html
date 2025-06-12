@@ -9,24 +9,47 @@
   <body>
 
     <!-- Header dinamico -->
-    <div id="header-placeholder"></div>
-    <script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("header").innerHTML = data;
-      // Applica lo stile dopo il caricamento
-      document.getElementById("header").style.position = "fixed";
-      document.getElementById("header").style.top = "0";
-      document.getElementById("header").style.left = "0";
-      document.getElementById("header").style.width = "100%";
-      document.getElementById("header").style.zIndex = "999";
+      <header id="header-fixed" class="fff">
+      <div class="header-inner">
+        <div class="logo-container">
+          <a href="index.html">
+            <img src="logo.png" alt="Logo Parrocchia Sacro Cuore" />
+          </a>
+          <div class="parrocchia-name">
+            <h1>PARROCCHIA <br>SACRO CUORE DI GESU'<br> VITTORIA</h1>
+          </div>
+        </div>
 
-      // Spinge giù il contenuto
-      document.querySelector("main").style.marginTop =
-        document.getElementById("header").offsetHeight + "px";
-    });
-</script>
+        <!-- Bottone menu toggle -->
+        <button class="menu-toggle" id="menu-toggle"
+          aria-label="Apri menu">☰</button>
+
+        <!-- Menu di navigazione -->
+        <nav id="nav-links" class="hidden">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="storia.html">Storia</a></li>
+            <li><a href="eventi.html">Notizie</a></li>
+            <li><a href="chi_siamo.html">Sacerdoti</a></li>
+            <li><a href="realta.html">Realtà</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    nav.classList.toggle("hidden");
+  });
+});
+  </script>
+
 
     <main class="home-rich-modern">
 
@@ -189,17 +212,7 @@
     <div id="footer-placeholder"></div>
 
     <script>
-    // Carica header dinamicamente
-    fetch('header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Errore nel caricamento header');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      })
-      .catch(err => console.error(err));
-
+   
     // Carica footer dinamicamente
     fetch('footer.html')
       .then(response => {
