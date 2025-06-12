@@ -1420,3 +1420,42 @@ header {
         margin-top: 10px;
       }
     } 
+
+
+    /* Container responsive per la tabella */
+.programma {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* Stile base per la tabella */
+.programma table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px; /* larghezza minima per scroll orizzontale su mobile */
+}
+
+/* Intestazione della tabella */
+.programma th {
+  background-color:#770000;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #770000;
+}
+
+/* Celle del corpo tabella */
+.programma td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #770000;
+  background-color: #fafafa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .programma table {
+    font-size: 14px;
+  }
+}
